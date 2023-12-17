@@ -31,7 +31,7 @@ const NotificationDropdown = () => {
         {notificationData.map((item, index) => (
           <div
             key={index}
-            className={` p-4 hover:bg-light-tertiary-bg dark:bg-dark-primary-bg hover:dark:bg-dark-tertiary-bg ${
+            className={` p-4 hover:bg-light-tertiary-bg dark:bg-dark-primary-bg dark:hover:bg-dark-tertiary-bg ${
               notificationData.length - 1 === index
                 ? ""
                 : "border-b border-light-primary-border dark:border-dark-primary-border"

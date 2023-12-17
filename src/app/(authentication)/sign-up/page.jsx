@@ -1,22 +1,29 @@
+"use client";
 import Link from "next/link";
 import AuthenticationHeader from "@/components/authentication/AuthenticationHeader";
 import LongButton from "@/components/authentication/LongButton";
 import LongTextField from "@/components/authentication/LongTextField";
 import AuthenticationCheckbox from "@/components/authentication/AuthenticationCheckbox";
 
-const ResetPassword = () => {
+const SignUp = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("hello");
+  };
+
   return (
     <>
       <AuthenticationHeader
         title="Sign Up"
         description="Create your account today"
       />
-      <form>
+      <form onSubmit={submitHandler}>
         <LongTextField
           id="email"
           type="email"
           label="Email Address"
           placeholder="name@example.com"
+          autoComplete="username"
         />
         <div className="grid grid-cols-2 gap-4">
           <LongTextField
@@ -24,26 +31,27 @@ const ResetPassword = () => {
             type="password"
             label="Password"
             placeholder="Password"
+            autoComplete="new-password"
           />
           <LongTextField
             id="confirmPassword"
             type="password"
             label="Confirm Password"
             placeholder="Confirm Password"
+            autoComplete="new-password"
           />
         </div>
         <div className="mb-5 mt-1">
-          <AuthenticationCheckbox
-            id="termService"
-            text="I accept the terms and privacy policy"
-          />
+          <AuthenticationCheckbox id="termService">
+            I accept the terms and privacy policy
+          </AuthenticationCheckbox>
         </div>
-        <LongButton text="Sign Up" />
+        <LongButton>Sign Up</LongButton>
         <div className="text-center">
           <Link
             href="/sign-in"
             alt=""
-            className="text-button hover:text-hover-button w-full text-[0.8rem] font-semibold hover:underline">
+            className="dark:text-link hover:dark:text-hover-link w-full text-[0.8rem] font-semibold text-button hover:text-hover-button hover:underline">
             Sign in to an existing account
           </Link>
         </div>
@@ -52,4 +60,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default SignUp;

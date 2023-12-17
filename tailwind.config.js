@@ -37,6 +37,8 @@ module.exports = {
         focus: "#3874ff",
         button: "#3874ff",
         "hover-button": "#004dff",
+        link: "#58a9ff",
+        "hover-link": "#3874ff",
       },
     },
     screens: {

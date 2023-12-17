@@ -1,11 +1,15 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Home = () => {
-  return (
-    <main>
-      <div>Home</div>
-    </main>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/sign-in");
+  }, [router]);
+
+  return <></>;
 };
 
 export default Home;

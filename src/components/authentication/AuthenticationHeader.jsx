@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const AuthenticationHeader = (props) => {
-  const { title, description } = props;
+  const { title, titleClass, description, descriptionClass, img, imgClass } =
+    props;
 
   return (
     <div className="mb-12 flex flex-col items-center">
@@ -10,17 +11,26 @@ const AuthenticationHeader = (props) => {
         href="/dashboard"
         className="mb-6">
         <Image
-          src="/img/logos/logo.png"
-          width={100}
-          height={100}
+          src={img ? img : "/img/logos/logo.png"}
+          width="0"
+          height="0"
+          sizes="100vw"
+          className={imgClass ? imgClass : "h-auto w-[58px]"}
           alt=""
-          className="w-[58px]"
         />
       </Link>
-      <div className="mb-1 text-2xl font-extrabold text-light-primary-text">
+      <div
+        className={`mb-1 text-light-primary-text transition duration-100 dark:text-dark-primary-text ${
+          titleClass ? titleClass : "text-2xl font-bold"
+        }`}>
         {title}
       </div>
-      <div className="font-light text-light-secondary-text">{description}</div>
+      <div
+        className={`text-center font-light text-light-secondary-text dark:text-dark-secondary-text ${
+          descriptionClass ? descriptionClass : ""
+        }`}>
+        {description}
+      </div>
     </div>
   );
 };

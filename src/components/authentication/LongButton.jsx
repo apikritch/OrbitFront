@@ -1,12 +1,16 @@
 import React from "react";
 
 const LongButton = (props) => {
-  const { text } = props;
+  const { onClick, width, marginBottom, leading, children } = props;
   return (
     <button
-      type="submit"
-      className="bg-button hover:bg-hover-button mb-4 w-full rounded-md py-[0.625rem] text-[0.8rem] font-semibold text-white transition duration-300">
-      {text}
+      onClick={onClick ? onClick : null}
+      className={`flex items-center justify-center rounded-md bg-button py-[0.7rem] text-[0.8rem] font-semibold text-white transition duration-300 hover:bg-hover-button ${
+        width ? width : "w-full"
+      } ${marginBottom ? marginBottom : "mb-4"} ${
+        leading ? leading : "leading-none"
+      }`}>
+      {children}
     </button>
   );
 };
